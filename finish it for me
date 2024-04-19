@@ -1,0 +1,113 @@
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QPushButton, QRadioButton, QGroupBox, QVBoxLayout, QHBoxLayout
+
+from random import shuffle
+
+class Q_Obgect():
+    def __init__(self, question, ra, wa1, wa2, wa3):
+        self.question = question
+        self.ra = ra
+        self.wa1 = wa1
+        self.wa2 = wa2
+        self.wa3 = wa3
+        
+xz = []
+xz.append(Q_Obgect('ъуъ1','1','2','3','4'))
+xz.append(Q_Obgect('ъуъ2','8','2','3','4'))
+xz.append(Q_Obgect('ъуъ3','5','2','3','4'))
+
+def ask(q: Q_Obgect):
+    question.setText(q.xz)
+    shuffle(Button_list)
+    button_list[0].setText(q.ra)
+    button_list[1].setText(q.wa1)
+    button_list[2].setText(q.wa2)
+    button_list[3].setText(q.wa3)
+
+
+
+
+
+
+
+def check_answer():
+    if answer_result.setText('Правильно  ')
+
+
+
+
+
+
+
+
+
+
+def Button_click():
+    if answer_button.text() =='Ответить':
+        variants.hide()
+        result.show()
+        answer_button.setText('Следующий вопрос')
+    else:
+        variants.show()
+        result.hide()
+        answer_button.setText('Ответить')
+
+def reset_buttons():
+    for btn in xz:
+        btn.setAutoExclusive(False)
+        btn.setChecked(False)
+        btn.setAutoExclusive(True)
+
+app = QApplication([])
+window = QWidget()
+
+question = QLabel('Вопрос: бабабой?')
+
+button_group = QGroupBox()
+btn1 = QRadioButton('да')
+btn2 = QRadioButton('нет')
+btn3 = QRadioButton('не знаю')
+btn4 = QRadioButton('че нафиг?')
+
+bg_lay = QVBoxLayout()
+bg_h1 = QHBoxLayout()
+bg_h2 = QHBoxLayout()
+
+bg_h1.addWidget(btn1)
+bg_h1.addWidget(btn2)
+bg_h2.addWidget(btn3)
+bg_h2.addWidget(btn4)
+
+bg_lay.addLayout(bg_h1)
+bg_lay.addLayout(bg_h2)
+button_group.setLayout(bg_lay)
+
+result = QGroupBox('Результат')
+
+answer_result = QLabel('ъуъ')
+right_answer = QLabel('ъуъ')
+
+rlm = QVBoxLayout()
+rlh1 = QHBoxLayout()
+rlh2 = QHBoxLayout()
+
+rlh1.addWidget(answer_result, alignment = Qt.AlignLeft)
+rlh2.addWidget(right_answer, alignment = Qt.AlignCenter)
+
+rlm.addLayout(rlh1)
+rlm.addLayout(rlh2)
+
+result.setLayout(rlm) # I SEE YOU
+
+answer_button = QPushButton('Ответить')
+
+main_lay = QVBoxLayout()
+main_lay.addWidget(question)
+main_lay.addWidget(button_group)
+main_lay.addWidget(result)
+main_lay.addWidget(answer_button)
+
+window.setLayout(main_lay)
+answer_button.clicked.connect(Button_click)
+window.show().
+app.e
